@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-nodeport
+  namespace: default
+spec:
+  selector:
+    app: nginx
+    env: prod
+  type: NodePort
+  ports:
+    - nodePort: 32410
+      protocol: TCP
+      port: 80
+      targetPort: 80
